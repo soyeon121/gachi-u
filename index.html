@@ -58,6 +58,7 @@ label{font-size:15px;font-weight:700;color:var(--t2)}
 .checks label{display:inline-block;background:#FFF6D8;border-radius:999px;padding:8px 14px;margin:5px 6px 0 0;font-size:16px;color:var(--t);cursor:pointer}
 
 /* override는 별도 style로 삽입 */
+.btn.ghost{background:#fff;border:2px solid #E9C33C;color:#7A6A1F}.btn.danger{background:#C25B4E;border-color:#C25B4E;color:#fff}#c-apptState{color:#7A6A1F}
 </style>
 
 <style>
@@ -102,6 +103,7 @@ input,select,textarea{border-color:#F0DFB5 !important;background:#fff !important
 .demo{bottom:86px !important}
 .toast{bottom:230px !important}
 
+.btn.ghost{background:#fff;border:2px solid #E9C33C;color:#7A6A1F}.btn.danger{background:#C25B4E;border-color:#C25B4E;color:#fff}#c-apptState{color:#7A6A1F}
 </style>
 </head>
 <body>
@@ -145,6 +147,7 @@ input,select,textarea{border-color:#F0DFB5 !important;background:#fff !important
   <div class="card" style="text-align:center"><div class="big" id="c-state">🟢 병원으로 이동 중</div><p class="mut" id="c-msg">현재 차량이 병원으로 이동하고 있습니다.</p><div>예상 도착 <b id="c-arr">10:25</b></div></div>
   <div class="card"><h3>📍 지금 어디에 있나요</h3><div class="map"><svg id="map2" viewBox="0 0 400 220" width="100%"></svg></div></div>
   <div class="card"><h3>진행 상태</h3><ul class="steps" id="c-steps"></ul></div>
+  <div class="card" id="c-change"><h3>진료 변경하기</h3><p class="mut">보호자가 진료 예약을 바꾸거나 취소할 수 있어요.</p><div class="kv"><span>병원</span><b id="c-hosp">충남대학교병원</b></div><div class="kv"><span>진료</span><b id="c-appt">정형외과 · 오전 10:30</b></div><div class="kv"><span>예약 상태</span><b id="c-apptState">예약 확정</b></div><label>바꿀 날짜 · 시간</label><select id="c-newTime"><option>10월 17일 오전 10:30</option><option>10월 18일 오전 11:00</option><option>10월 20일 오후 2:00</option></select><div style="display:flex;gap:10px;margin-top:12px"><button class="btn" style="flex:1" onclick="reqChange()">진료 시간 바꾸기</button><button class="btn ghost" style="flex:1" id="c-cancelBtn" onclick="cancelAppt()">진료 취소하기</button></div><p class="mut" id="c-changeMsg" style="margin-top:10px">변경이나 취소는 병원에 바로 전달됩니다. (가상 시연)</p></div>
   <div class="card" id="c-care" style="display:none"><h3>진료가 완료되었어요</h3><div class="kv"><span>진료과</span><b>정형외과</b></div><div class="kv"><span>진료 완료</span><b>오전 11:20</b></div><div class="kv"><span>다음 진료</span><b>10월 16일 오전 10:30</b></div><div class="kv"><span>의료진 전달사항</span><b>무릎 찜질 · 무리한 계단 금지</b></div><p class="mut">* 실제 의료정보 공유는 환자 동의와 병원 절차를 전제로 하며, 화면은 가상 데이터입니다.</p></div>
 </div>
 
@@ -162,32 +165,16 @@ input,select,textarea{border-color:#F0DFB5 !important;background:#fff !important
 </div>
 
 <!-- 하단으로 옮김: 병원 등록·목록 (발표용) -->
-<div class="sec" id="v-bottom">
-  <h2>병원 등록 · 목록</h2>
-  <p class="mut">위 화면을 먼저 보시고, 필요할 때 여기서 진료 등록과 환자 목록을 확인하세요.</p>
-  <div class="card">
-    <h3>＋ 외래 진료 등록 (시연용)</h3>
-    <p class="mut">실제 EMR 연동 대신, 진료 등록 순간 자동 연결 과정을 보여줍니다.</p>
-    <label>환자 이름</label><input id="f-name" value="김○○">
-    <label>병원</label><select id="f-hosp"><option>충남대학교병원</option><option>을지대학교병원</option><option>건양대학교병원</option></select>
-    <label>진료과 / 시간</label><select id="f-dept"><option>정형외과 · 오전 10:30</option><option>재활의학과 · 오전 11:00</option><option>내과 · 오후 2:00</option></select>
-    <label>환자 이동 상태 (복수 선택)</label>
-    <div class="checks" id="f-cond">
-      <label><input type="checkbox" checked> 휠체어 이용</label>
-      <label><input type="checkbox" checked> 장거리 보행 어려움</label>
-      <label><input type="checkbox" checked> 보호자 미동승</label>
-      <label><input type="checkbox"> 보행기 사용</label>
-      <label><input type="checkbox"> 목발 사용</label>
-    </div>
-    <button class="btn" onclick="autoBook()">외래 일정 등록 → 자동 연결 시작</button>
-  </div>
+<div class="sec" id="v-bottom" style="display:none">
+  <h2>병원 등록 · 목록 <span class="mut" style="font-size:13px">(관리자 모드)</span></h2>
+  <p class="mut">관리자용 화면입니다. 일반 화면에서는 보이지 않습니다.</p>
   <div class="card">
     <h3>오늘 환자 목록</h3>
     <div class="plist" id="plist"></div>
   </div>
 </div>
 
-<div class="foot">가치가U · 같이 가요 · 대전 Mock 시제품 · 발표용 데모입니다</div>
+<div class="foot">가치가U · 같이 가요 · 대전 Mock 시제품 · 발표용 데모입니다<br><button id="adminToggle" onclick="toggleAdmin()" style="margin-top:10px;border:1px solid #E7D9A8;background:#fff;border-radius:999px;padding:8px 16px;font-size:13px;color:#9A8F7A;cursor:pointer">관리자 모드 열기</button></div>
 </div>
 
 
@@ -251,12 +238,15 @@ function goArrive(){stage=4;patients[0].s="도착 완료";patients[0].cls="ok";t
 function goDone(){stage=5;toast('진료가 완료되었습니다 — 보호자에게 알림 전송');renderAll();location.hash='#care'}
 function goHome(){stage=6;patients[0].s="귀가 중";patients[0].cls="move";toast('귀가 차량이 준비되었어요');renderAll();location.hash='#patient'}
 function fbPick(b){fbMood=b.innerText.replace(/\n/g,' ');var bs=b.parentElement.children;for(var i=0;i<bs.length;i++)bs[i].classList.remove('on');b.classList.add('on')}
+var cancelArm=false;
+function reqChange(){var v=document.getElementById('c-newTime').value;document.getElementById('c-appt').textContent='정형외과 · '+v;document.getElementById('c-apptState').textContent='변경 요청중 → '+v;document.getElementById('c-changeMsg').textContent='「'+v+'」로 변경을 요청했어요. 병원에서 확정되면 알려드릴게요.';cancelArm=false;document.getElementById('c-cancelBtn').textContent='진료 취소하기';document.getElementById('c-cancelBtn').classList.remove('danger');toast('진료 변경 요청이 병원에 전달되었습니다')}
+function cancelAppt(){var b=document.getElementById('c-cancelBtn');if(!cancelArm){cancelArm=true;b.textContent='정말 취소할까요? 다시 누르면 취소돼요';b.classList.add('danger');document.getElementById('c-changeMsg').textContent='취소하려면 버튼을 한 번 더 눌러주세요.';return}document.getElementById('c-apptState').textContent='취소됨';document.getElementById('c-changeMsg').textContent='진료 예약이 취소되었어요. 차량도 함께 취소되었습니다. 다시 예약하려면 병원으로 문의해주세요.';b.textContent='취소됨';toast('진료 예약이 취소되었습니다 — 차량 자동 취소');cancelArm=false}
 function fbSend(){if(!fbMood)fbMood="의견";var a=JSON.parse(localStorage.getItem('gachi_fb')||'[]');a.unshift({m:fbMood,a:document.getElementById('fb1').value,b:document.getElementById('fb2').value,c:document.getElementById('fb3').value,t:new Date().toLocaleString('ko-KR')});
  localStorage.setItem('gachi_fb',JSON.stringify(a));document.getElementById('fb1').value=document.getElementById('fb2').value=document.getElementById('fb3').value='';renderFb();toast('소중한 의견 접수번호 GU-'+(1000+a.length)+' 감사합니다')}
 function renderFb(){var a=JSON.parse(localStorage.getItem('gachi_fb')||'[]');document.getElementById('fbN').textContent='('+a.length+'건)';
  document.getElementById('fbList').innerHTML=a.length?a.map(function(f){return '<div style="border-top:1px dashed var(--line);padding:8px 0"><b>'+f.m+'</b> <span class="mut">'+f.t+'</span><br>👍 '+(f.a||'-')+'<br>😟 '+(f.b||'-')+'<br>💡 '+(f.c||'-')+'</div>'}).join(''):'<span class="mut">아직 접수된 의견이 없어요. 첫 의견을 남겨주세요.</span>'}
 var demo=[
- "STEP 1 · 병원 관리자 화면에서 김○○님 외래 진료를 등록하세요. [등록] 버튼을 눌러보세요.",
+ "STEP 1 · 병원에서 김○○님 외래 진료가 등록되면 이동이 자동으로 연결됩니다.",
  "STEP 2 · 가치가U가 환자 이동 조건을 분석하고 있습니다.",
  "STEP 3 · AI 분석: 휠체어 차량이 필요합니다 · 동행 지원이 필요합니다.",
  "STEP 4 · 휠체어 차량 배정 완료 · 동행 매니저 매칭 완료.",
@@ -267,8 +257,12 @@ var demo=[
  "STEP 9 · 진료 완료: 진료가 완료되었습니다. [진료 완료]를 눌러보세요.",
  "STEP 10 · 보호자: 진료 완료와 다음 일정이 보입니다.",
  "STEP 11 · 귀가: 귀가 차량이 준비되었어요. [귀가 차량 자동 배정]을 눌러보세요."];
+var adminOpen=false;
+function toggleAdmin(){adminOpen=!adminOpen;document.getElementById('v-bottom').style.display=adminOpen?'block':'none';document.getElementById('adminToggle').textContent=adminOpen?'관리자 모드 닫기':'관리자 모드 열기';if(adminOpen){document.getElementById('v-bottom').scrollIntoView({behavior:'smooth',block:'start'});}}
 var di=0;
-function demoGo(d){di=Math.min(Math.max(di+d,0),10);document.getElementById('demoT').textContent='둘러보기 '+(di+1)+'/11';document.getElementById('demoD').innerHTML='<b>「'+demo[di]+'」</b>';
+function demoGo(d){di=Math.min(Math.max(di+d,0),10);
+if(di<=1&&!adminOpen){document.getElementById('v-bottom').style.display='block';}
+else if(!adminOpen){document.getElementById('v-bottom').style.display='none';}document.getElementById('demoT').textContent='둘러보기 '+(di+1)+'/11';document.getElementById('demoD').innerHTML='<b>「'+demo[di]+'」</b>';
  if(di<=4)location.hash='#hospital';else if(di===5)location.hash='#patient';else if(di===6||di===9)location.hash='#care';else if(di===7||di===8)location.hash='#hospital';else location.hash='#hospital';
  if(di===1)autoBook();if(di===5)goMoveSilent();if(di===7)goArriveSilent();if(di===8)goDoneSilent();if(di===10)goHomeSilent()}
 function goMoveSilent(){stage=3;renderAll()}function goArriveSilent(){stage=4;renderAll()}function goDoneSilent(){stage=5;renderAll()}function goHomeSilent(){stage=6;renderAll()}
