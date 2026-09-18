@@ -154,14 +154,14 @@ label{font-size:15px;font-weight:700;color:var(--t2)}
   <label>추가되었으면 하는 기능이 있나요?</label><textarea id="fb3" rows="2" placeholder="예: 귀가 시간 미리 알려주기"></textarea>
   <button class="btn" onclick="fbSend()">의견 보내기</button>
   <p class="mut">입력하신 연락처는 문의 응대 목적으로만 사용되며 이 기기 브라우저에만 저장됩니다.</p></div>
-  <div class="card"><h3>관리자용 · 접수된 의견 <span id="fbN"></span></h3><div id="fbList"></div>
+  <div class="card" style="display:none"><h3>접수된 의견 <span id="fbN"></span></h3><div id="fbList"></div>
   <p style="margin-top:8px"><span class="tag">이동</span><span class="tag">차량</span><span class="tag">병원</span><span class="tag">보호자</span><span class="tag">진료정보</span><span class="tag">UI/UX</span><span class="tag">기타</span></p></div>
 </div>
 
 <div class="foot">가치가U · 같이 가요 · 대전 Mock 시제품 · 발표용 데모입니다</div>
 </div>
 
-<div class="demo"><div class="row"><button onclick="demoGo(-1)">◀ 이전</button><button class="go" onclick="demoGo(1)">다음 ▶</button><div style="font-size:15px;font-weight:800" id="demoT">시나리오 1/11</div></div><p id="demoD"></p></div>
+<div class="demo"><div class="row"><button onclick="demoGo(-1)">◀ 이전</button><button class="go" onclick="demoGo(1)">다음 ▶</button><div style="font-size:15px;font-weight:800" id="demoT">둘러보기 1/11</div></div><p id="demoD"></p></div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -232,7 +232,7 @@ var demo=[
  "STEP 10 · 보호자: 진료 완료와 다음 일정이 보입니다.",
  "STEP 11 · 귀가: 귀가 차량이 준비되었어요. [귀가 차량 자동 배정]을 눌러보세요."];
 var di=0;
-function demoGo(d){di=Math.min(Math.max(di+d,0),10);document.getElementById('demoT').textContent='시나리오 '+(di+1)+'/11';document.getElementById('demoD').innerHTML='<b>「'+demo[di]+'」</b>';
+function demoGo(d){di=Math.min(Math.max(di+d,0),10);document.getElementById('demoT').textContent='둘러보기 '+(di+1)+'/11';document.getElementById('demoD').innerHTML='<b>「'+demo[di]+'」</b>';
  if(di<=4)location.hash='#hospital';else if(di===5)location.hash='#patient';else if(di===6||di===9)location.hash='#care';else if(di===7||di===8)location.hash='#hospital';else location.hash='#hospital';
  if(di===1)autoBook();if(di===5)goMoveSilent();if(di===7)goArriveSilent();if(di===8)goDoneSilent();if(di===10)goHomeSilent()}
 function goMoveSilent(){stage=3;renderAll()}function goArriveSilent(){stage=4;renderAll()}function goDoneSilent(){stage=5;renderAll()}function goHomeSilent(){stage=6;renderAll()}
