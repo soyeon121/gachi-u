@@ -61,21 +61,39 @@ label{font-size:15px;font-weight:700;color:var(--t2)}
 </style>
 
 <style>
-/* 가치가U · 참고화면(노란 배너형) 오버라이드 */
-.wrap{background:#F0EEEA !important;}
-.top{background:#F0EEEA !important;border-bottom:none !important;padding:14px 16px 4px !important;}
-.brand{background:#E9D681;border-radius:22px;padding:16px 18px;box-shadow:0 8px 20px rgba(180,150,60,.25);border:1px solid #DFCE96;}
+/* 가치가U · 파스텔 노랑톤 */
+:root{--p:#D9A62E;--p2:#7A5E10;--s:#F2CE5F;--bg:#FFF8E7;--card:#FFFDF4;--t:#4A4238;--t2:#8A7F6E;--ok:#7FA88B;--line:#F0DFB5;}
+body{background:#F7EFD8 !important;}
+.wrap{background:#FFF8E7 !important;}
+.top{background:#FFF8E7 !important;border-bottom:none !important;padding:14px 16px 4px !important;}
+.brand{background:#FDEFB2;border-radius:22px;padding:16px 18px;box-shadow:0 8px 20px rgba(200,170,60,.22);border:1px solid #F3DFA0;}
 .brand img{width:52px;height:52px;border-radius:16px;background:#fff;}
-.brand b{font-size:23px;color:#3F3A36;}
-.slogan{color:#5C554E !important;font-size:14px !important;}
+.brand b{font-size:23px;color:#5C4A12;}
+.slogan{color:#8A7F6E !important;font-size:14px !important;}
 .roles{margin-top:10px !important;}
-.roles a{background:#FFFFFF !important;border:1.5px solid #E8E0D2 !important;border-radius:999px !important;font-size:14px !important;padding:9px 2px !important;}
-.roles a.on{background:#3F3A36 !important;color:#fff !important;border-color:#3F3A36 !important;}
-.hero{background:#FFFFFF !important;border-radius:22px !important;border:1px solid #E8E0D2 !important;}
+.roles a{background:#FFFFFF !important;border:1.5px solid #F0DFB5 !important;border-radius:999px !important;font-size:14px !important;padding:9px 2px !important;color:#5C4A12 !important;}
+.roles a.on{background:#E9B93C !important;color:#4A3A0A !important;border-color:#E9B93C !important;}
+.hero{background:#FFFFFF !important;border-radius:22px !important;border:1px solid #F0DFB5 !important;}
 .sec{padding:14px 16px !important;}
-.card{border-radius:20px !important;border:1px solid #E8E0D2 !important;box-shadow:0 4px 14px rgba(0,0,0,.05) !important;}
-.demo{background:#FFFFFF !important;border-top:1px solid #E8E0D2 !important;padding:8px 12px calc(10px + env(safe-area-inset-bottom)) !important;}
+.card{border-radius:20px !important;border:1px solid #F0DFB5 !important;background:#FFFDF4 !important;box-shadow:0 4px 14px rgba(190,150,50,.08) !important;}
+.btn{background:#E9B93C !important;color:#4A3A0A !important;}
+.btn.sub{background:#fff !important;color:#7A5E10 !important;border:2px solid #E9B93C !important;}
+.btn.ghost{background:#FBF3DC !important;color:#4A4238 !important;}
+.sum div{background:#FFFDF4 !important;border:1px solid #F0DFB5 !important;}
+.pitem{background:#FFFDF4 !important;border:2px solid #F0DFB5 !important;}
+.pitem.sel{border-color:#E9B93C !important;}
+.chip{background:#FBF0C8 !important;color:#7A5E10 !important;}
+.auto{background:#5C4A12 !important;color:#FFF6DC !important;}
+.auto .bar{background:#8A7638 !important;}
+.auto .bar i{background:#FFE89A !important;}
+.map{background:#F6EFD2 !important;border:1px solid #E7D9A8 !important;}
+.demo{background:#FFFDF4 !important;border-top:1px solid #F0DFB5 !important;padding:8px 12px calc(10px + env(safe-area-inset-bottom)) !important;}
 .demo p{font-size:14px !important;margin:6px 0 2px !important;}
+.demo button{background:#F7ECD0 !important;color:#5C4A12 !important;}
+.demo button.go{background:#E9B93C !important;color:#4A3A0A !important;}
+.fb3 button.on{border-color:#E9B93C !important;background:#FDEFB2 !important;}
+.checks label{background:#FBF3DC !important;}
+input,select,textarea{border-color:#F0DFB5 !important;background:#fff !important;}
 </style>
 </head>
 <body>
@@ -98,27 +116,8 @@ label{font-size:15px;font-weight:700;color:var(--t2)}
   <div class="sum"><div><b id="s1">24명</b><span>오늘 진료 예정</span></div><div><b id="s2">18명</b><span>이동 자동 연결</span></div><div><b id="s3">5명</b><span>이동 중</span></div><div><b id="s4">13명</b><span>도착 완료</span></div></div>
   <div class="card auto" id="autoBox" style="display:none"><div id="autoTxt">대기 중</div><div class="bar"><i id="autoBar"></i></div></div>
   <div class="card" id="detail"></div>
-  <div class="card">
-    <h3>＋ 외래 진료 등록 (시연용)</h3>
-    <p class="mut">실제 EMR 연동 대신, 진료 등록 순간 자동 연결 과정을 보여줍니다.</p>
-    <label>환자 이름</label><input id="f-name" value="김○○">
-    <label>병원</label><select id="f-hosp"><option>충남대학교병원</option><option>을지대학교병원</option><option>건양대학교병원</option></select>
-    <label>진료과 / 시간</label><select id="f-dept"><option>정형외과 · 오전 10:30</option><option>재활의학과 · 오전 11:00</option><option>내과 · 오후 2:00</option></select>
-    <label>환자 이동 상태 (복수 선택)</label>
-    <div class="checks" id="f-cond">
-      <label><input type="checkbox" checked> 휠체어 이용</label>
-      <label><input type="checkbox" checked> 장거리 보행 어려움</label>
-      <label><input type="checkbox" checked> 보호자 미동승</label>
-      <label><input type="checkbox"> 보행기 사용</label>
-      <label><input type="checkbox"> 목발 사용</label>
-    </div>
-    <button class="btn" onclick="autoBook()">외래 일정 등록 → 자동 연결 시작</button>
-  </div>
-  <div class="card">
-    <h3>오늘 환자 목록</h3>
-    
-    <div class="plist" id="plist"></div>
-  </div>
+
+
 
 </div>
 
@@ -157,6 +156,32 @@ label{font-size:15px;font-weight:700;color:var(--t2)}
   <p class="mut">입력하신 연락처는 문의 응대 목적으로만 사용되며 이 기기 브라우저에만 저장됩니다.</p></div>
   <div class="card" style="display:none"><h3>접수된 의견 <span id="fbN"></span></h3><div id="fbList"></div>
   <p style="margin-top:8px"><span class="tag">이동</span><span class="tag">차량</span><span class="tag">병원</span><span class="tag">보호자</span><span class="tag">진료정보</span><span class="tag">UI/UX</span><span class="tag">기타</span></p></div>
+</div>
+
+<!-- 하단으로 옮김: 병원 등록·목록 (발표용) -->
+<div class="sec" id="v-bottom">
+  <h2>병원 등록 · 목록</h2>
+  <p class="mut">위 화면을 먼저 보시고, 필요할 때 여기서 진료 등록과 환자 목록을 확인하세요.</p>
+  <div class="card">
+    <h3>＋ 외래 진료 등록 (시연용)</h3>
+    <p class="mut">실제 EMR 연동 대신, 진료 등록 순간 자동 연결 과정을 보여줍니다.</p>
+    <label>환자 이름</label><input id="f-name" value="김○○">
+    <label>병원</label><select id="f-hosp"><option>충남대학교병원</option><option>을지대학교병원</option><option>건양대학교병원</option></select>
+    <label>진료과 / 시간</label><select id="f-dept"><option>정형외과 · 오전 10:30</option><option>재활의학과 · 오전 11:00</option><option>내과 · 오후 2:00</option></select>
+    <label>환자 이동 상태 (복수 선택)</label>
+    <div class="checks" id="f-cond">
+      <label><input type="checkbox" checked> 휠체어 이용</label>
+      <label><input type="checkbox" checked> 장거리 보행 어려움</label>
+      <label><input type="checkbox" checked> 보호자 미동승</label>
+      <label><input type="checkbox"> 보행기 사용</label>
+      <label><input type="checkbox"> 목발 사용</label>
+    </div>
+    <button class="btn" onclick="autoBook()">외래 일정 등록 → 자동 연결 시작</button>
+  </div>
+  <div class="card">
+    <h3>오늘 환자 목록</h3>
+    <div class="plist" id="plist"></div>
+  </div>
 </div>
 
 <div class="foot">가치가U · 같이 가요 · 대전 Mock 시제품 · 발표용 데모입니다</div>
