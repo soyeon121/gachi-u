@@ -96,6 +96,8 @@ label{font-size:15px;font-weight:700;color:var(--t2)}
   <h2>오늘의 외래 이동 관리</h2>
   <p class="mut">충남대학교병원 · 2026년 9월 18일 금요일 · Mock 연동 중</p>
   <div class="sum"><div><b id="s1">24명</b><span>오늘 진료 예정</span></div><div><b id="s2">18명</b><span>이동 자동 연결</span></div><div><b id="s3">5명</b><span>이동 중</span></div><div><b id="s4">13명</b><span>도착 완료</span></div></div>
+  <div class="card auto" id="autoBox" style="display:none"><div id="autoTxt">대기 중</div><div class="bar"><i id="autoBar"></i></div></div>
+  <div class="card" id="detail"></div>
   <div class="card">
     <h3>＋ 외래 진료 등록 (시연용)</h3>
     <p class="mut">실제 EMR 연동 대신, 진료 등록 순간 자동 연결 과정을 보여줍니다.</p>
@@ -112,13 +114,12 @@ label{font-size:15px;font-weight:700;color:var(--t2)}
     </div>
     <button class="btn" onclick="autoBook()">외래 일정 등록 → 자동 연결 시작</button>
   </div>
-  <div class="card auto" id="autoBox" style="display:none"><div id="autoTxt">대기 중</div><div class="bar"><i id="autoBar"></i></div></div>
   <div class="card">
     <h3>오늘 환자 목록</h3>
-    <div class="anav"><button class="on">대시보드</button><button onclick="toast('환자 전체 목록은 시제품에서 오늘 목록으로 보여줍니다')">환자</button><button onclick="toast('이동관리: 김○○님 이동 중 · 이○○님 이동 중입니다')">이동관리</button><button onclick="location.hash='#feedback'">피드백</button></div>
+    
     <div class="plist" id="plist"></div>
   </div>
-  <div class="card" id="detail"></div>
+
 </div>
 
 <!-- 환자 -->
