@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>가치가U — 같이 가요</title>
 <style>
-:root{--p:#D9825B;--p2:#C86A3E;--s:#E9B872;--bg:#FFF9F3;--card:#fff;--t:#3F3A36;--t2:#756E68;--ok:#6E9B78;--line:#F0E2D4;--r:18px}
-*{box-sizing:border-box}body{margin:0;background:#F6EFE7;color:var(--t);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:18px;line-height:1.6}
-.wrap{max-width:480px;margin:0 auto;min-height:100vh;background:var(--bg);box-shadow:0 0 30px rgba(0,0,0,.08);padding-bottom:170px}
+:root{--p:#F5D86E;--p2:#6B5510;--s:#F9E79A;--bg:#FFF9E9;--card:#FFFEF9;--t:#4A4238;--t2:#9A8F7A;--ok:#8FB89A;--line:#F2E3B6;--r:18px}
+*{box-sizing:border-box}body{margin:0;background:#FBF3D9;color:var(--t);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:18px;line-height:1.6}
+.wrap{max-width:480px;margin:0 auto;min-height:100vh;background:var(--bg);box-shadow:0 0 30px rgba(0,0,0,.08);padding-bottom:230px}
 .top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);padding:12px 16px 10px}
 .brand{display:flex;align-items:center;gap:10px}
 .brand img{width:46px;height:46px;border-radius:14px;object-fit:cover;border:1px solid var(--line)}
 .brand b{font-size:22px}.brand b span{font-weight:900}
 .slogan{font-size:13px;color:var(--t2);margin-top:2px}
 .roles{display:flex;gap:8px;margin-top:10px}
-.roles a{flex:1;text-align:center;text-decoration:none;color:var(--t);background:#FFF3E8;border:2px solid transparent;border-radius:14px;padding:10px 2px;font-size:15px;font-weight:700}
+.roles a{flex:1;text-align:center;text-decoration:none;color:var(--t);background:#FFF6D8;border:2px solid transparent;border-radius:14px;padding:10px 2px;font-size:15px;font-weight:700}
 .roles a.on{background:var(--p);color:#fff}
 .hero{margin:14px 16px 0;background:var(--card);border-radius:var(--r);overflow:hidden;box-shadow:0 6px 18px rgba(217,130,91,.15);border:1px solid var(--line)}
 .hero img{width:100%;display:block}
@@ -32,56 +32,56 @@ h2{font-size:28px;margin:4px 0 10px}h3{font-size:22px;margin:0 0 8px}.big{font-s
 .plist{display:flex;flex-direction:column;gap:10px}
 .pitem{background:#fff;border:2px solid var(--line);border-radius:16px;padding:14px;text-align:left;width:100%;cursor:pointer;font-size:17px}
 .pitem.sel{border-color:var(--p)}
-.chip{display:inline-block;background:#FFF0E2;color:var(--p2);border-radius:999px;padding:4px 12px;font-size:14px;font-weight:800;margin:3px 4px 3px 0}
-.chip.ok{background:#E7F6EF;color:#2e7d5b}.chip.move{background:#EAF1FB;color:#2a78d6}
+.chip{display:inline-block;background:#FFF3C4;color:var(--p2);border-radius:999px;padding:4px 12px;font-size:14px;font-weight:800;margin:3px 4px 3px 0}
+.chip.ok{background:#EAF4E4;color:#2e7d5b}.chip.move{background:#FFF3C4;color:#8A7A2E}
 .steps{list-style:none;margin:10px 0;padding:0}.steps li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;font-size:17px}
 .dot{width:28px;height:28px;border-radius:50%;background:#EEE;display:flex;align-items:center;justify-content:center;font-weight:900;flex:none}
 li.done .dot{background:var(--ok);color:#fff}li.now .dot{background:var(--p);color:#fff}li.now{font-weight:800}
-.auto{background:#2f2a26;color:#FFEEDD;border-radius:16px;padding:16px;font-size:17px;min-height:150px}
+.auto{background:#6B5510;color:#FFEEDD;border-radius:16px;padding:16px;font-size:17px;min-height:150px}
 .auto .bar{height:10px;background:#5a5148;border-radius:99px;overflow:hidden;margin-top:10px}
 .auto .bar i{display:block;height:100%;width:0;background:var(--s);transition:width .5s}
-.map{background:#EAF3E4;border:1px solid #D8E5C9;border-radius:16px;padding:0;overflow:hidden}
+.map{background:#FFF3C4;border:1px solid #D8E5C9;border-radius:16px;padding:0;overflow:hidden}
 .toast{position:fixed;left:50%;bottom:150px;transform:translateX(-50%);background:#3F3A36;color:#fff;padding:12px 20px;border-radius:999px;font-size:16px;display:none;z-index:99;max-width:90%}
 .demo{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#fff;border-top:2px solid var(--p);padding:10px 14px;z-index:50}
 .demo .row{display:flex;gap:8px;align-items:center}
-.demo button{flex:none;border:none;border-radius:12px;min-height:48px;padding:0 16px;font-size:16px;font-weight:800;background:#F3E7D8;cursor:pointer}
+.demo button{flex:none;border:none;border-radius:12px;min-height:48px;padding:0 16px;font-size:16px;font-weight:800;background:#FFF0BD;cursor:pointer}
 .demo button.go{background:var(--p);color:#fff}
 .demo p{margin:6px 0 0;font-size:14px}.demo b{color:var(--p2)}
 input,select,textarea{width:100%;font-size:18px;padding:13px;border-radius:12px;border:2px solid var(--line);margin-top:8px;font-family:inherit}
 label{font-size:15px;font-weight:700;color:var(--t2)}
 .fb3{display:flex;gap:10px}.fb3 button{flex:1;border:2px solid var(--line);background:#fff;border-radius:16px;font-size:17px;font-weight:800;padding:16px 4px;min-height:72px;cursor:pointer}
-.fb3 button.on{border-color:var(--p);background:#FFF0E2}
+.fb3 button.on{border-color:var(--p);background:#FFF3C4}
 .tag{font-size:13px;background:#F5EDE2;border-radius:8px;padding:2px 8px;margin-right:6px}
 .foot{font-size:13px;color:var(--t2);text-align:center;padding:20px}
 .kv{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--line);font-size:17px}
-.anav{display:flex;gap:8px;margin:8px 0}.anav button{flex:1;border:none;background:#F3E7D8;border-radius:12px;padding:12px 4px;font-size:15px;font-weight:800;cursor:pointer}.anav button.on{background:var(--p);color:#fff}
-.checks label{display:inline-block;background:#FFF3E8;border-radius:999px;padding:8px 14px;margin:5px 6px 0 0;font-size:16px;color:var(--t);cursor:pointer}
+.anav{display:flex;gap:8px;margin:8px 0}.anav button{flex:1;border:none;background:#FFF0BD;border-radius:12px;padding:12px 4px;font-size:15px;font-weight:800;cursor:pointer}.anav button.on{background:var(--p);color:#fff}
+.checks label{display:inline-block;background:#FFF6D8;border-radius:999px;padding:8px 14px;margin:5px 6px 0 0;font-size:16px;color:var(--t);cursor:pointer}
 
 /* override는 별도 style로 삽입 */
 </style>
 
 <style>
 /* 가치가U · 파스텔 노랑톤 */
-:root{--p:#D9A62E;--p2:#7A5E10;--s:#F2CE5F;--bg:#FFF8E7;--card:#FFFDF4;--t:#4A4238;--t2:#8A7F6E;--ok:#7FA88B;--line:#F0DFB5;}
-body{background:#F7EFD8 !important;}
+:root{--p:#E4C44F;--p2:#7A5E10;--s:#F2CE5F;--bg:#FFF8E7;--card:#FFFDF4;--t:#4A4238;--t2:#8A7F6E;--ok:#7FA88B;--line:#F0DFB5;}
+body{background:#FBF3D9 !important;}
 .wrap{background:#FFF8E7 !important;}
 .top{background:#FFF8E7 !important;border-bottom:none !important;padding:14px 16px 4px !important;}
-.brand{background:#FDEFB2;border-radius:22px;padding:16px 18px;box-shadow:0 8px 20px rgba(200,170,60,.22);border:1px solid #F3DFA0;}
+.brand{background:#FFF3C4;border-radius:22px;padding:16px 18px;box-shadow:0 8px 20px rgba(200,170,60,.22);border:1px solid #F3DFA0;}
 .brand img{width:52px;height:52px;border-radius:16px;background:#fff;}
 .brand b{font-size:23px;color:#5C4A12;}
 .slogan{color:#8A7F6E !important;font-size:14px !important;}
 .roles{margin-top:10px !important;}
 .roles a{background:#FFFFFF !important;border:1.5px solid #F0DFB5 !important;border-radius:999px !important;font-size:14px !important;padding:9px 2px !important;color:#5C4A12 !important;}
-.roles a.on{background:#E9B93C !important;color:#4A3A0A !important;border-color:#E9B93C !important;}
+.roles a.on{background:#F5D86E !important;color:#4A3A0A !important;border-color:#F5D86E !important;}
 .hero{background:#FFFFFF !important;border-radius:22px !important;border:1px solid #F0DFB5 !important;}
 .sec{padding:14px 16px !important;}
 .card{border-radius:20px !important;border:1px solid #F0DFB5 !important;background:#FFFDF4 !important;box-shadow:0 4px 14px rgba(190,150,50,.08) !important;}
-.btn{background:#E9B93C !important;color:#4A3A0A !important;}
-.btn.sub{background:#fff !important;color:#7A5E10 !important;border:2px solid #E9B93C !important;}
+.btn{background:#F5D86E !important;color:#4A3A0A !important;}
+.btn.sub{background:#fff !important;color:#7A5E10 !important;border:2px solid #F5D86E !important;}
 .btn.ghost{background:#FBF3DC !important;color:#4A4238 !important;}
 .sum div{background:#FFFDF4 !important;border:1px solid #F0DFB5 !important;}
 .pitem{background:#FFFDF4 !important;border:2px solid #F0DFB5 !important;}
-.pitem.sel{border-color:#E9B93C !important;}
+.pitem.sel{border-color:#F5D86E !important;}
 .chip{background:#FBF0C8 !important;color:#7A5E10 !important;}
 .auto{background:#5C4A12 !important;color:#FFF6DC !important;}
 .auto .bar{background:#8A7638 !important;}
@@ -89,23 +89,26 @@ body{background:#F7EFD8 !important;}
 .map{background:#F6EFD2 !important;border:1px solid #E7D9A8 !important;}
 .demo{background:#FFFDF4 !important;border-top:1px solid #F0DFB5 !important;padding:8px 12px calc(10px + env(safe-area-inset-bottom)) !important;}
 .demo p{font-size:14px !important;margin:6px 0 2px !important;}
-.demo button{background:#F7ECD0 !important;color:#5C4A12 !important;}
-.demo button.go{background:#E9B93C !important;color:#4A3A0A !important;}
-.fb3 button.on{border-color:#E9B93C !important;background:#FDEFB2 !important;}
+.demo button{background:#FFF0BD !important;color:#5C4A12 !important;}
+.demo button.go{background:#F5D86E !important;color:#4A3A0A !important;}
+.fb3 button.on{border-color:#F5D86E !important;background:#FFF3C4 !important;}
 .checks label{background:#FBF3DC !important;}
 input,select,textarea{border-color:#F0DFB5 !important;background:#fff !important;}
+
+.topinfo{margin-top:8px;font-size:13px;color:#9A8F7A;background:#FFF3C4;border:1px solid #F2E3B6;border-radius:999px;text-align:center;padding:6px}
+.bottomnav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#FFFEF9;border-top:1px solid #F2E3B6;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));z-index:60}
+.bottomnav a{flex:1;text-align:center;text-decoration:none;color:#6B5510;background:#FFF6D8;border:2px solid transparent;border-radius:14px;padding:10px 2px;font-size:15px;font-weight:800;line-height:1.35}
+.bottomnav a.on{background:#F5D86E;color:#4A3A0A;border-color:#F5D86E}
+.demo{bottom:86px !important}
+.toast{bottom:230px !important}
+
 </style>
 </head>
 <body>
 <div class="wrap">
 <div class="top">
   <div class="brand"><img id="logo" alt="가치가U 로고"><div><b><span>가치가U</span> 같이 가요</b><div class="slogan">병원에 가는 순간부터, 집에 돌아오는 순간까지</div></div></div>
-  <div class="roles">
-    <a href="#hospital" id="r-hospital">🏥<br>병원</a>
-    <a href="#patient" id="r-patient">🧓<br>환자</a>
-    <a href="#care" id="r-care">👨‍👩‍👧<br>보호자</a>
-    <a href="#feedback" id="r-feedback">💬<br>피드백</a>
-  </div>
+  <div class="topinfo">화면 전환은 맨 아래 버튼을 눌러주세요</div>
 </div>
 
 <!-- 병원 -->
@@ -131,7 +134,7 @@ input,select,textarea{border-color:#F0DFB5 !important;background:#fff !important
   <div class="card" id="move"><h3>병원으로 가고 있어요</h3>
     <div class="map"><svg id="map1" viewBox="0 0 400 220" width="100%"></svg></div>
     <ul class="steps" id="p-steps"></ul>
-    <div class="card" style="background:#FFF3E8;text-align:center"><div style="font-size:30px">🚗</div><div class="big" id="p-now">병원으로 이동 중이에요</div><div>예상 도착 <b id="p-arr">10:25</b></div></div>
+    <div class="card" style="background:#FFF6D8;text-align:center"><div style="font-size:30px">🚗</div><div class="big" id="p-now">병원으로 이동 중이에요</div><div>예상 도착 <b id="p-arr">10:25</b></div></div>
     <p class="mut">입력하신 연락처는 문의 응대 목적으로만 사용되며 이 기기 브라우저에만 저장됩니다.</p>
   </div>
 </div>
@@ -187,6 +190,13 @@ input,select,textarea{border-color:#F0DFB5 !important;background:#fff !important
 <div class="foot">가치가U · 같이 가요 · 대전 Mock 시제품 · 발표용 데모입니다</div>
 </div>
 
+
+<nav class="bottomnav">
+  <a href="#hospital" id="r-hospital">🏥<br>병원</a>
+  <a href="#patient" id="r-patient">🧓<br>환자</a>
+  <a href="#care" id="r-care">👨‍👩‍👧<br>보호자</a>
+  <a href="#feedback" id="r-feedback">💬<br>피드백</a>
+</nav>
 <div class="demo"><div class="row"><button onclick="demoGo(-1)">◀ 이전</button><button class="go" onclick="demoGo(1)">다음 ▶</button><div style="font-size:15px;font-weight:800" id="demoT">둘러보기 1/11</div></div><p id="demoD"></p></div>
 <div class="toast" id="toast"></div>
 
@@ -209,7 +219,7 @@ function renderList(){var h="";patients.forEach(function(p,i){h+='<button class=
 function renderDetail(){var p=patients[sel];document.getElementById('detail').innerHTML=
  '<h3>'+p.n+' · AI 이동 분석</h3><div class="kv"><span>진료과</span><b>'+p.d+'</b></div><div class="kv"><span>진료시간</span><b>'+p.t+'</b></div>'+
  '<div class="kv"><span>환자 이동상태</span><b>'+p.c.join(' · ')+'</b></div>'+
- '<div style="background:#FFF3E8;border-radius:14px;padding:12px;margin:10px 0">✓ 휠체어 이용 ✓ 장거리 보행 어려움 ✓ 보호자 미동승<br>AI 추천: <b>“휠체어 탑승 차량” + “동행 매니저”</b></div>'+
+ '<div style="background:#FFF6D8;border-radius:14px;padding:12px;margin:10px 0">✓ 휠체어 이용 ✓ 장거리 보행 어려움 ✓ 보호자 미동승<br>AI 추천: <b>“휠체어 탑승 차량” + “동행 매니저”</b></div>'+
  '<div class="kv"><span>차량</span><b>휠체어 전용 차량 · 김○○ 기사</b></div><div class="kv"><span>도착 예정</span><b>10:05</b></div><div class="kv"><span>동행 매니저</span><b>이○○ · 배정 완료</b></div>'+
  '<button class="btn" onclick="goMove()">이동 시작</button><div style="display:flex;gap:8px"><button class="btn sub" style="flex:1" onclick="goArrive()">병원 도착</button><button class="btn ok" style="flex:1" onclick="goDone()">진료 완료</button></div>'+
  '<button class="btn ghost" onclick="goHome()">귀가 차량 자동 배정</button>'}
@@ -222,14 +232,14 @@ function renderSteps(){var h1="";PSTEPS.forEach(function(s,i){var c=i<stage-1?"d
  document.getElementById('c-care').style.display=stage>=5?"block":"none";
  if(stage===6){document.getElementById('c-state').textContent="🟣 귀가 차량으로 이동 중";document.getElementById('p-now').textContent="🚗 집으로 가고 있어요"}}
 function drawMapEl(s,prog){var x=40+prog*280;
- s.innerHTML='<rect width="400" height="220" fill="#EAF3E4"/>'+
+ s.innerHTML='<rect width="400" height="220" fill="#FFF3C4"/>'+
  '<path d="M0 150 L400 130" stroke="#fff" stroke-width="26"/>'+
  '<path d="M120 0 L140 220" stroke="#fff" stroke-width="20"/>'+
- '<path d="M0 150 L400 130" stroke="#C9DDB4" stroke-width="2" stroke-dasharray="8 8"/>'+
+ '<path d="M0 150 L400 130" stroke="#EAD88F" stroke-width="2" stroke-dasharray="8 8"/>'+
  '<text x="30" y="60" font-size="15">🏠 집</text><text x="300" y="60" font-size="15">🏥 병원</text>'+
- '<circle cx="52" cy="120" r="10" fill="#D9825B"/><text x="52" y="124" font-size="10" text-anchor="middle" fill="#fff">집</text>'+
- '<circle cx="345" cy="118" r="12" fill="#e34948"/><text x="345" y="123" font-size="12" text-anchor="middle" fill="#fff">＋</text>'+
- '<g><rect x="'+(x-16)+'" y="128" width="34" height="22" rx="7" fill="#2a78d6"/><text x="'+(x+1)+'" y="144" font-size="15" text-anchor="middle">🚗</text></g>'+
+ '<circle cx="52" cy="120" r="10" fill="#C9A227"/><text x="52" y="124" font-size="10" text-anchor="middle" fill="#fff">집</text>'+
+ '<circle cx="345" cy="118" r="12" fill="#C9A227"/><text x="345" y="123" font-size="12" text-anchor="middle" fill="#fff">＋</text>'+
+ '<g><rect x="'+(x-16)+'" y="128" width="34" height="22" rx="7" fill="#8A7A2E"/><text x="'+(x+1)+'" y="144" font-size="15" text-anchor="middle">🚗</text></g>'+
  '<text x="'+x+'" y="170" font-size="13" text-anchor="middle" font-weight="bold">이동 중 '+(10+Math.round(prog*15))+'분</text>'}
 function renderAll(){renderList();renderDetail();renderSteps();var p=Math.min(Math.max((stage-1)/5,0),1);drawMapEl(document.getElementById('map1'),p);drawMapEl(document.getElementById('map2'),p)}
 function autoBook(){var box=document.getElementById('autoBox');box.style.display='block';
@@ -278,6 +288,7 @@ window.addEventListener('hashchange',route);
 document.getElementById('demoD').innerHTML='<b>「'+demo[0]+'」</b>';
 route();renderAll();renderFb();
 </script>
+<!-- pastel-bottomnav 2026-09-18 -->
 
 <!--ethos-badge--><div style="text-align:center;padding:16px 8px 20px;font:12px/1.6 -apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;color:#9aa1a9">이 페이지는 <a href="https://ethos.ai.kr" target="_blank" rel="noopener" style="color:#8a919b;text-decoration:underline">에토스AI 코드</a>로 만들어졌습니다</div>
 </body></html>
